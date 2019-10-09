@@ -27,4 +27,12 @@ abstract class OutputAbstract implements OutputInterface
     {
         $this->tests_titles[] = $tests_titles;
     }
+
+    /**
+     * @return array
+     */
+    public function getTestsTitles(): array
+    {
+        return $this->tests_titles;
+    }
 }

@@ -38,4 +38,19 @@ class Math
 
         return $input[(int) ($count / 2)];
     }
+
+    public static function standardDeviation(array $dataset)
+    {
+        $num_of_elements = (float) count($dataset);
+
+        $sum = (float) array_sum($dataset);
+        $average = $sum / $num_of_elements;
+
+        $variance = 0.0;
+        foreach ($dataset as $i) {
+            $variance += (float)pow($i - $average, 2);
+        }
+
+        return (float)sqrt($variance / $num_of_elements);
+    }
 }

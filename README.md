@@ -133,3 +133,12 @@ Markus Poerschke (@markuspoerschke)
 ## License
 
 Apache License Version 2.0
+
+#### Francesco Danti
+
+- refactor for php 7.2
+- added Console Ranking Table On Repetition (optional)
+- added Console Ranking Table Final (optional)
+- added OutlinersDecorator to remove outliners = `stdDev * magnitude`
+
+![Console table](console_table.png)

@@ -17,8 +17,8 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "mre": "src/"
+        "psr-4": {
+            "mre\\": "src/mre"
         }
     },
     "config": {
@@ -27,7 +27,8 @@
     "require": {
         "php": ">=7.2.0",
         "abbadon1334/gnuplot": "*@dev",
-        "phpunit/php-timer": "*@dev"
+        "phpunit/php-timer": "*@dev",
+        "phplucidframe/console-table": "^1.2"
     },
     "require-dev": {
         "phpunit/phpunit": "*"

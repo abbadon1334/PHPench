@@ -25,7 +25,7 @@ class GnuPlotOutput extends OutputAbstract
     private $plot;
 
     /** @var int */
-    private $precision = 14;
+    private $precision = 140;
 
     /**
      * @param string $filename

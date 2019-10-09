@@ -43,4 +43,9 @@ interface OutputInterface
      * @return mixed
      */
     public function finalize(AggregatorInterface $aggregator, $i);
+
+    /**
+     * Return the Title - used for the ranked table.
+     */
+    public function getTestsTitles(): array;
 }

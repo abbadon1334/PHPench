@@ -16,7 +16,7 @@ abstract class AbstractBenchmark implements \mre\PHPench\BenchmarkInterface
 
     public function setUp($arrSize): void
     {
-        $this->text = $this->createText(10);
+        $this->text = $this->createText($arrSize);
         $this->placeholders = $this->createPlaceholders($arrSize);
     }
 
@@ -87,4 +87,5 @@ $phpench->addBenchmark(new BenchmarkPregReplaceCallback(), 'TestPregReplaceCallb
 // the start, end and step for each call
 $phpench->setInput(range(0, 200, 2));
 $phpench->setRepetitions(10);
-$phpench->run();
+$phpench->setShowRankingTable(true, true);
+$phpench->run(true);
