@@ -30,7 +30,7 @@ class BenchmarkDoubleQuotes extends AbstractBenchmark
 }
 
 // Create a new benchmark instance
-$phpench = new mre\PHPench(new OutlinersDecorator(new \mre\PHPench\Aggregator\MedianAggregator(),1));
+$phpench = new mre\PHPench(new OutlinersDecorator(new \mre\PHPench\Aggregator\MedianAggregator(), 1));
 
 $output = new \mre\PHPench\Output\GnuPlotOutput('test4.png', 1024, 768);
 $output->setTitle('Compare single quote and double quote strings');

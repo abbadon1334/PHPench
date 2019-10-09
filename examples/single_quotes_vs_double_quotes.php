@@ -46,5 +46,5 @@ $phpench->addBenchmark(new BenchmarkDoubleQuotes(), 'doubleQuotes');
 // the start, end and step for each call
 $phpench->setInput(range(1, pow(2, 16), 512));
 $phpench->setRepetitions(4);
-$phpench->setShowRankingTable(true,true);
+$phpench->setShowRankingTable(true, true);
 $phpench->run(true);

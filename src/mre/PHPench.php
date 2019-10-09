@@ -117,7 +117,7 @@ class PHPench
         $this->output->finalize($this->aggregator, $i);
 
         if ($this->show_table_final) {
-            $this->showTableData($this->output->getTestsTitles(), $this->aggregator->getData(),0, true);
+            $this->showTableData($this->output->getTestsTitles(), $this->aggregator->getData(), 0, true);
         }
 
         if ($keepAlive) {
@@ -184,9 +184,8 @@ class PHPench
 
         $ranked = [];
         foreach ($titles as $titleIndex => $title) {
-
             $ranked[$title] = [];
-            foreach($data as $rowIndex => $rowData) {
+            foreach ($data as $rowIndex => $rowData) {
                 $ranked[$title][$rowIndex] = $rowData[$titleIndex];
             }
 
@@ -199,21 +198,23 @@ class PHPench
             $range = $max - $min;
             $ranked[$title] = [
                 $title,
-                number_format($avg,10),
-                number_format($min,10),
-                number_format($max,10),
-                number_format($std,10),
-                number_format($range,10)
+                number_format($avg, 10),
+                number_format($min, 10),
+                number_format($max, 10),
+                number_format($std, 10),
+                number_format($range, 10),
             ];
         }
 
-        uasort($ranked, function($a,$b) {
-            if ($a[1] === $b[1]) return 0;
+        uasort($ranked, function ($a, $b) {
+            if ($a[1] === $b[1]) {
+                return 0;
+            }
 
             return ($a[1] < $b[1]) ? -1 : 1;
         });
 
-        foreach($ranked as $row) {
+        foreach ($ranked as $row) {
             $table->addRow($row);
         }
 
