@@ -1,6 +1,6 @@
 {
-    "name": "mre/phpench",
-    "description": "A graphical PHP benchmarking tool",
+    "name": "abbadon1334/phpench",
+    "description": "A graphical PHP benchmarking tool - forked from mre/phpench",
     "keywords": ["php", "gnuplot", "graph", "plot", "stats"],
     "homepage": "https://github.com/mre/phpench",
     "license": "MIT",
@@ -26,7 +26,7 @@
     },
     "require": {
         "php": ">=7.2.0",
-        "gregwar/gnuplot": "*@dev",
+        "abbadon1334/gnuplot": "*@dev",
         "phpunit/php-timer": "*@dev"
     },
     "require-dev": {
