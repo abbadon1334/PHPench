@@ -72,7 +72,7 @@ class BenchmarkPregReplaceCallback extends AbstractBenchmark
 }
 
 // Create a new benchmark instance
-$phpench = new mre\PHPench(new \mre\PHPench\Aggregator\MedianAggregator());
+$phpench = new mre\PHPench(new \mre\PHPench\Aggregator\MovingAverageAggregator());
 $output = new \mre\PHPench\Output\GnuPlotOutput('test3.png', 1024, 768);
 $output->setTitle('Compare placeholder replacement');
 $phpench->setOutput($output);
@@ -85,7 +85,7 @@ $phpench->addBenchmark(new BenchmarkPregReplaceCallback(), 'TestPregReplaceCallb
 // Run the benchmark and plot the results in realtime.
 // With the second parameter you can specify
 // the start, end and step for each call
-$phpench->setInput(range(0, 200, 2));
+$phpench->setInput(range(0, 200, 100));
 $phpench->setRepetitions(10);
 $phpench->setShowRankingTable(true, true);
 $phpench->run(true);

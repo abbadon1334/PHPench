@@ -19,24 +19,24 @@ class Math
     public static function median(array $input)
     {
         $count = count($input);
-
-        if ($count < 1) {
+        if($count === 0) {
             return 0;
-        } elseif (1 === $count) {
-            return reset($input);
+        }
+        if($count === 1) {
+            return $input[0];
         }
 
-        // cleanup input array
-        $input = array_values($input);
+        /* sort values*/
         sort($input, SORT_NUMERIC);
 
-        if (0 === $count % 2) {
-            $center = (int) floor($count / 2);
+        /* get middle index */
+        $middle = (int) floor($count / 2);
+        $median = $input[$middle];
 
-            return ($input[$center - 1] + $input[$center]) / 2;
-        }
-
-        return $input[(int) ($count / 2)];
+        return ($middle % 2 === 0)
+            ? ($median + $input[$middle-1]) / 2
+            : $median
+        ;
     }
 
     public static function standardDeviation(array $dataset)
@@ -52,5 +52,18 @@ class Math
         }
 
         return (float)sqrt($variance / $num_of_elements);
+    }
+
+    public static function movingAverage(array $data, int $length)
+    {
+        $sum = array_sum(array_slice($data, 0, $length));
+
+        $result = array($length - 1 => $sum / $length);
+
+        for ($i = $length, $n = count($data); $i != $n; ++$i) {
+            $result[$i] = $result[$i - 1] + ($data[$i] - $data[$i - $length]) / $length;
+        }
+
+        return $result;
     }
 }

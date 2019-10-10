@@ -68,7 +68,7 @@ class GnuPlotOutput extends OutputAbstract
             }
         }
 
-        $this->plot->plot();
+        $this->plot->refresh();
     }
 
     /**

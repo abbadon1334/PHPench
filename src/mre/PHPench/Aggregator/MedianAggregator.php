@@ -16,19 +16,29 @@ class MedianAggregator implements AggregatorInterface
 
     public function push($i, $index, $value): void
     {
-        $this->data[$i][$index][] = $value;
+        $this->data[$i][$index] = $value;
     }
 
     public function getData()
     {
-        $data = [];
+        if(count($this->data) <=1) {
+            return $this->data;
+        }
 
-        foreach ($this->data as $i => $iterationResults) {
-            foreach ($iterationResults as $index => $testResults) {
-                $data[$i][$index] = Math::median($testResults);
+        $dataByTitle = [];
+        foreach ($this->data as $rowIndex => $rowData) {
+            foreach ($rowData as $testIndex => $value) {
+                $dataByTitle[$testIndex][$rowIndex] = $value;
             }
         }
 
-        return $data;
+        $ret = [];
+        foreach ($dataByTitle as $testIndex => $testData) {
+            foreach ($testData as $i => $v) {
+                $ret[$i][$testIndex] = Math::median($testData);
+            }
+        }
+
+        return $ret;
     }
 }

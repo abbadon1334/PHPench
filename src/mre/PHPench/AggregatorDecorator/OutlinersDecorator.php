@@ -62,7 +62,6 @@ class OutlinersDecorator implements AggregatorInterface
             }
         }
 
-
         return $ret;
     }
 
